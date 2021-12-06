@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {FlatList} from 'react-native';
+import {Alert, FlatList} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {CartSummary} from '../../components/CartSummary';
 import {FruitItem, IFruitItem} from '../../components/FruitItem';
@@ -23,22 +24,39 @@ export interface Fruit extends IFruitItem {
 
 export function Home() {
   const [fruits, setFruits] = useState<Fruit[]>([]);
+  const [search, setSearch] = useState('');
+
+  const getFruits = async () => {
+    const response = await api.get('/fruits');
+
+    const responseFormatted: Fruit[] = response.data.map((fruit: Fruit) => {
+      return {
+        ...fruit,
+        priceFormatted: formatPrice(fruit.price),
+      };
+    });
+    setFruits(responseFormatted);
+  };
 
   useEffect(() => {
-    const getFruits = async () => {
-      const response = await api.get('/fruits');
-
-      const responseFormatted = response.data.map((fruit: Fruit) => {
-        return {
-          ...fruit,
-          priceFormatted: formatPrice(fruit.price),
-        };
-      });
-      setFruits(responseFormatted);
-    };
-
     getFruits();
-  });
+  }, []);
+
+  const handleSearchProduct = async () => {
+    const fruitsFiltered = fruits.filter((fruit: Fruit) =>
+      fruit.name.toLowerCase().includes(search.toLowerCase()),
+    );
+
+    if (search && fruitsFiltered.length === 0) {
+      Alert.alert('Nenhum produto encontrado');
+    }
+
+    if (search) {
+      setFruits(fruitsFiltered);
+    } else {
+      await getFruits();
+    }
+  };
 
   return (
     <>
@@ -52,8 +70,8 @@ export function Home() {
         </TitleContainer>
 
         <Header>
-          <SearchInput />
-          <SearchButton activeOpacity={0.8}>
+          <SearchInput onChangeText={text => setSearch(text)} />
+          <SearchButton activeOpacity={0.8} onPress={handleSearchProduct}>
             <Feather name="search" size={24} color="#FFF" />
           </SearchButton>
         </Header>
