@@ -3,35 +3,35 @@
     {
       "id": 1,
       "name": "Maçã",
-      "price": 5.98,
+      "price": 4.17,
       "quantity": 10,
       "image": "https://www.jauserve.com.br/on/demandware.static/-/Sites-jauserve-master/default/dwe1f556df/5260.png"
     },
     {
       "id": 2,
       "name": "Pêra",
-      "price": 5.98,
+      "price": 8.33,
       "quantity": 10,
       "image": "https://static.vecteezy.com/ti/fotos-gratis/p1/3281507-fruta-pera-verde-isolada-no-fundo-branco-gr%C3%A1tis-foto.jpg"
     },
     {
       "id": 3,
       "name": "Banana",
-      "price": 5.98,
+      "price": 2.50,
       "quantity": 10,
       "image": "https://static.vecteezy.com/ti/fotos-gratis/p1/1227515-bananas-frescas-maduras-gr%C3%A1tis-foto.jpg"
     },
     {
       "id": 4,
       "name": "Abacaxi",
-      "price": 5.98,
+      "price": 2.67,
       "quantity": 10,
       "image": "https://us-southeast-1.linodeobjects.com/storage/barateiro/media/uploads/produto/abacaxi_und_53526e8c-5cfd-484b-b827-779d077677eb.png"
     },
     {
       "id": 5,
       "name": "Manga",
-      "price": 5.98,
+      "price": 2.59,
       "quantity": 10,
       "image": "https://polpasefrutas.com.br/arquivos/imagens/produtos/mesa/manga.png"
     }
