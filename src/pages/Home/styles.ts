@@ -59,3 +59,13 @@ export const SearchButton = styled.TouchableOpacity`
 export const FruitsList = styled(FlatList as new () => FlatList<Fruit>).attrs({
   showsVerticalScrollIndicator: false,
 })``;
+
+export const SignOutButton = styled.TouchableOpacity`
+  width: 40px;
+  height: 40px;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 10px;
+`;

@@ -3,13 +3,7 @@ import React, {useCallback} from 'react';
 
 import Feather from 'react-native-vector-icons/Feather';
 
-import {
-  TitleContainer,
-  BackButton,
-  TitleWrapper,
-  Title,
-  Subtitle,
-} from './styles';
+import {Container, BackButton, TitleWrapper, Title, Subtitle} from './styles';
 
 interface Props {
   isHomePage?: boolean;
@@ -23,7 +17,7 @@ export function Header({isHomePage = true}: Props) {
   }, [navigation]);
 
   return (
-    <TitleContainer>
+    <Container>
       {isHomePage ? (
         <Feather name="shopping-cart" size={24} color="#E83F5B" />
       ) : (
@@ -36,6 +30,6 @@ export function Header({isHomePage = true}: Props) {
         <Title>Frame</Title>
         <Subtitle>Commerce</Subtitle>
       </TitleWrapper>
-    </TitleContainer>
+    </Container>
   );
 }

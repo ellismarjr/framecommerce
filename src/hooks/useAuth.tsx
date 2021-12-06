@@ -21,7 +21,6 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  signed: boolean;
   user: IUser | null;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
@@ -58,6 +57,7 @@ export function AuthProvider({children}: AuthProviderProps): JSX.Element {
 
   const signIn = useCallback(async ({email, password}: SignInCredentials) => {
     try {
+      setLoading(true);
       if (email === 'frame@frame.com.br' && password === '123456') {
         const userData = {
           email,
@@ -70,8 +70,9 @@ export function AuthProvider({children}: AuthProviderProps): JSX.Element {
         ]);
 
         setUser(userData);
+        setLoading(false);
       } else {
-        console.log(email, password);
+        setLoading(false);
         ToastAndroid.showWithGravity(
           'Ususario ou senha incorretos',
           ToastAndroid.LONG,
@@ -79,6 +80,7 @@ export function AuthProvider({children}: AuthProviderProps): JSX.Element {
         );
       }
     } catch (error) {
+      setLoading(false);
       ToastAndroid.showWithGravity(
         'Erro ao fazer login, verifique suas credenciais',
         ToastAndroid.LONG,
@@ -101,7 +103,6 @@ export function AuthProvider({children}: AuthProviderProps): JSX.Element {
   return (
     <AuthContext.Provider
       value={{
-        signed: !!user,
         user,
         signIn,
         signOut,

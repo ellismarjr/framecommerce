@@ -4,6 +4,7 @@ import {Alert, FlatList} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {CartSummary} from '../../components/CartSummary';
 import {FruitItem, IFruitItem} from '../../components/FruitItem';
+import {useAuth} from '../../hooks/useAuth';
 import {api} from '../../services/api';
 import {formatPrice} from '../../utils/formatPriceBR';
 
@@ -16,6 +17,7 @@ import {
   Header,
   SearchInput,
   SearchButton,
+  SignOutButton,
 } from './styles';
 
 export interface Fruit extends IFruitItem {
@@ -23,6 +25,7 @@ export interface Fruit extends IFruitItem {
 }
 
 export function Home() {
+  const {signOut} = useAuth();
   const [fruits, setFruits] = useState<Fruit[]>([]);
   const [search, setSearch] = useState('');
 
@@ -67,6 +70,9 @@ export function Home() {
             <Title>Frame</Title>
             <Subtitle>Commerce</Subtitle>
           </TitleWrapper>
+          <SignOutButton activeOpacity={0.5} onPress={signOut}>
+            <Feather name="log-out" size={24} color="#E83F5B" />
+          </SignOutButton>
         </TitleContainer>
 
         <Header>
