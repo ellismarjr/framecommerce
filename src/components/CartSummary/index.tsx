@@ -78,10 +78,6 @@ export function CartSummary({isCheckout = false}: CartSummaryProps) {
     });
   }, [cart]);
 
-  formattedCartToHTML.map(carH => {
-    console.log(carH);
-  });
-
   const createPDF = useCallback(async () => {
     const isPermittedRequest = await isPermitted();
     if (isPermittedRequest) {
