@@ -33,7 +33,7 @@ export function CartItem({data}: CartItemProps) {
 
   return (
     <Container>
-      <ProductImage source={{uri: data.image}} />
+      <ProductImage source={{uri: data.image}} resizeMode="contain" />
       <Info>
         <ProductInfo>
           <ProductName>{data.name}</ProductName>
