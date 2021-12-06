@@ -5,3 +5,13 @@ export const Container = styled.View`
 
   padding: 30px 30px 0;
 `;
+
+export const EmptyCart = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const EmptyCartText = styled.Text`
+  font-size: 20px;
+`;

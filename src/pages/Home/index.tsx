@@ -31,7 +31,7 @@ export function Home() {
       const responseFormatted = response.data.map((fruit: Fruit) => {
         return {
           ...fruit,
-          price: formatPrice(fruit.price),
+          priceFormatted: formatPrice(fruit.price),
         };
       });
       setFruits(responseFormatted);
