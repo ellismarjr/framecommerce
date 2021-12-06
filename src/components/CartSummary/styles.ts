@@ -17,6 +17,22 @@ export const ShowItemsButtom = styled.TouchableOpacity`
   align-items: center;
 `;
 
+export const CheckoutButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+  width: 110px;
+
+  background: #fdecef;
+  border-radius: 5px;
+`;
+
+export const CheckoutButtonText = styled.Text`
+  color: #e83f5b;
+  font-size: 20px;
+`;
+
 export const AmountItems = styled.Text`
   margin-left: 15px;
   color: #fff;

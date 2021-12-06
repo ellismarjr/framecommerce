@@ -1,8 +1,8 @@
 import React from 'react';
 import {FlatList} from 'react-native';
+
 import {CartItem} from '../../components/CartItem';
 import {CartSummary} from '../../components/CartSummary';
-
 import {Header} from '../../components/Header';
 import {useCart} from '../../hooks/useCart';
 
@@ -31,7 +31,7 @@ export function Cart() {
           showsVerticalScrollIndicator={false}
         />
       </Container>
-      <CartSummary />
+      <CartSummary isCheckout />
     </>
   );
 }
