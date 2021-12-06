@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import {Cart} from '../../components/Cart';
+import {CartSummary} from '../../components/CartSummary';
 import {FruitItem, IFruitItem} from '../../components/FruitItem';
 import {api} from '../../services/api';
 import {formatPrice} from '../../utils/formatPriceBR';
@@ -68,7 +68,7 @@ export function Home() {
           columnWrapperStyle={{flex: 1, justifyContent: 'space-between'}}
         />
       </Container>
-      <Cart />
+      <CartSummary />
     </>
   );
 }

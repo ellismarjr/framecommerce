@@ -3,7 +3,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import {Container, ShowItemsButtom, AmountItems, Amount} from './styles';
 
-export function Cart() {
+export function CartSummary() {
   return (
     <Container>
       <ShowItemsButtom activeOpacity={0.7}>
