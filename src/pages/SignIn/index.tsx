@@ -12,7 +12,13 @@ import {
   SignInButton,
   SignInButtonText,
 } from './styles';
-import {useForm} from 'react-hook-form';
+import {SubmitHandler, useForm} from 'react-hook-form';
+import {useAuth} from '../../hooks/useAuth';
+
+interface CreateSessionFormData {
+  email: string;
+  password: string;
+}
 
 const schema = Yup.object().shape({
   email: Yup.string().required('E-mail é obrigatório'),
@@ -20,12 +26,18 @@ const schema = Yup.object().shape({
 });
 
 export function SignIn() {
+  const {signIn} = useAuth();
   const {
     control,
     formState: {errors},
+    handleSubmit,
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const handleSignIn: SubmitHandler<CreateSessionFormData> = async data => {
+    await signIn(data);
+  };
 
   return (
     <Container>
@@ -55,10 +67,11 @@ export function SignIn() {
           control={control}
           placeholder="Digite sua senha"
           keyboardType="default"
+          secureTextEntry
           error={errors.amount && errors.amount.message}
         />
 
-        <SignInButton activeOpacity={0.8}>
+        <SignInButton activeOpacity={0.8} onPress={handleSubmit(handleSignIn)}>
           <SignInButtonText>Entrar</SignInButtonText>
         </SignInButton>
       </FormContainer>
