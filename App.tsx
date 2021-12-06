@@ -1,9 +1,15 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
+import {Home} from './src/pages/Home';
 
-import {SignIn} from './src/pages/SignIn';
+import {Routes} from './src/routes';
 
 const App = () => {
-  return <SignIn />;
+  return (
+    <NavigationContainer>
+      <Home />
+    </NavigationContainer>
+  );
 };
 
 export default App;
